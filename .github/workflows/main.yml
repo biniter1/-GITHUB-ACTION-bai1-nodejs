@@ -1,0 +1,36 @@
+name: Bai 1 - Nodejs app
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ["self-hosted","Linux","x64"]
+    steps:
+      - name: Hello everyone
+        run: echo "Hello everyone"
+
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run lint
+      
+      - name: Test
+        run: npm test
+
+      - name: build
+        run: npm run build
+
+
+
+

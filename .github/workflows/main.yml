@@ -9,6 +9,13 @@ on:
       - main
 
 jobs:
+  init:
+    runs-on: ["self-hosted","Linux","x64"]
+    steps:
+      - name: install nodejs environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
   build-and-test:
     runs-on: ["self-hosted","Linux","x64"]
     steps:
